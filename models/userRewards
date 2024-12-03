@@ -1,0 +1,9 @@
+CREATE TABLE UserReward (
+    userRewardID INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    rewardID INT NOT NULL,
+    claimDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deliveryStatus ENUM('Pending', 'Delivered') DEFAULT 'Pending',
+    FOREIGN KEY (userID) REFERENCES Users(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (rewardID) REFERENCES Reward(rewardID) ON DELETE CASCADE
+);

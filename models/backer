@@ -1,0 +1,8 @@
+CREATE TABLE BackerCampaign (
+    backerCampaignID SERIAL PRIMARY KEY, -- Auto-incrementing primary key
+    firstName VARCHAR(50) NOT NULL CHECK (LENGTH(firstName) >= 2), -- Constraint to ensure minimum name length
+    lastName VARCHAR(50) NOT NULL CHECK (LENGTH(lastName) >= 2), -- Constraint for minimum length of the last name
+    campaignID VARCHAR(255) NOT NULL REFERENCES Campaign(campaignID) ON DELETE CASCADE ON UPDATE CASCADE, -- Foreign key with cascading actions
+    amountDonated NUMERIC(10, 2) NOT NULL CHECK (amountDonated > 0), -- Constraint to ensure positive donations
+    backedDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Default value for the backed date
+);

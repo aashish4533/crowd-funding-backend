@@ -1,0 +1,8 @@
+CREATE TABLE Reward (
+    rewardID INT AUTO_INCREMENT PRIMARY KEY,
+    campaignID INT NOT NULL,
+    rewardDescription VARCHAR(255),
+    minDonationAmount DECIMAL(10, 2),
+    deliveryDate DATE,
+    FOREIGN KEY (campaignID) REFERENCES Campaign(CampaignID) ON DELETE CASCADE
+);

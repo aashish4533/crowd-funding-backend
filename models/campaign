@@ -1,0 +1,10 @@
+CREATE TABLE Campaign (
+    CampaignID VARCHAR(255) PRIMARY KEY, 
+    Title VARCHAR(100) NOT NULL, 
+    Description TEXT NOT NULL, 
+    GoalAmount DECIMAL(10, 2) NOT NULL, 
+    CurrentAmount DECIMAL(10, 2) DEFAULT 0, 
+    Category VARCHAR(50) NOT NULL, 
+    Status VARCHAR(20) DEFAULT 'Active', 
+    StartDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    EndDate TIMESTAMP NOT NULL);
